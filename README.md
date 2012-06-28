@@ -15,12 +15,18 @@ It works a lot like the Autobahn library for the WAMP protocol; but this extensi
 ## How to use it? 
 
 First instantiate a Socket.IO connection:
-[private final SocketIO mConnection = new SocketIOConnection();
+```java
+private final SocketIO mConnection = new SocketIOConnection();
+```
 
 Then initiate the connection, implementing the handler:
-[mConnection.connect(wsuri, new SocketIO.ConnectionHandler() { .. connection handler implementation .. });
+```java
+mConnection.connect(wsuri, new SocketIO.ConnectionHandler() { .. connection handler implementation .. });
+```
 
 And finally, subscribe to the desired events, declaring their handlers and the types of the incomming objects:
-[mConnection.on("myevent", MyEvent.class, new SocketIO.EventHandler() { .. event handler implementation .. });
+```java
+mConnection.on("myevent", MyEvent.class, new SocketIO.EventHandler() { .. event handler implementation .. });
+```
 
 Don't worry I'll documment more soon, and also will post a Simple Events Demo.
