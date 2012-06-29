@@ -35,12 +35,18 @@ mConnection.connect(wsuri, new SocketIO.ConnectionHandler() {
   }
 });
 ```
+TODO: onError interface, comming soon, no biggie.
 
 And finally, subscribe to the desired events, declaring their handlers and the types of the incomming objects:
 ```java
 mConnection.on("myevent", MyEvent.class, new SocketIO.EventHandler() {
   //What to do on event
 });
+```
+
+If you wan to emit an event, simply call emit:
+```java
+mConnection.emit("myevent", new MyEvent("foo"));
 ```
 
 Don't worry I'll documment more soon, and also will post a Simple Events Demo.
