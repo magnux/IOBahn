@@ -44,7 +44,7 @@ mConnection.on("myevent", MyEvent.class, new SocketIO.EventHandler() {
 
 Don't worry I'll documment more soon, and also will post a Simple Events Demo.
 
-License
+##License
 (The MIT License)
 
 Copyright (c) 2012 Alejandro Hernandez
