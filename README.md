@@ -21,12 +21,22 @@ private final SocketIO mConnection = new SocketIOConnection();
 
 Then initiate the connection, implementing the handler:
 ```java
-mConnection.connect(wsuri, new SocketIO.ConnectionHandler() { .. connection handler implementation .. });
+mConnection.connect(wsuri, new SocketIO.ConnectionHandler() {
+  public void onOpen() {
+  //What to do on WebSocket openning
+  }
+  
+  public void onClose() {
+   //What to do on WebSocket closing
+  }
+});
 ```
 
 And finally, subscribe to the desired events, declaring their handlers and the types of the incomming objects:
 ```java
-mConnection.on("myevent", MyEvent.class, new SocketIO.EventHandler() { .. event handler implementation .. });
+mConnection.on("myevent", MyEvent.class, new SocketIO.EventHandler() {
+  //What to do on event
+});
 ```
 
 Don't worry I'll documment more soon, and also will post a Simple Events Demo.
