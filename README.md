@@ -1,7 +1,8 @@
 IOBahn
 ======
 
-Socket.IO protocol implementation on top of AutobahnAndroid WebSockets library
+Socket.IO protocol implementation on top of AutobahnAndroid WebSockets library.
+This works with the lattest Socket.IO protocol.
 
 ## Why?
 
