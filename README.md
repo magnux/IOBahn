@@ -1,8 +1,10 @@
 IOBahn
 ======
 
-Socket.IO protocol implementation on top of AutobahnAndroid WebSockets library.
-This works with the lattest Socket.IO protocol.
+Socket.IO protocol implementation on top of [AutobahnAndroid](https://github.com/tavendo/AutobahnAndroid) WebSockets library.
+This works with the lattest [Socket.IO protocol](https://github.com/LearnBoost/socket.io-spec).
+
+Many thanks to the [Socket.IO](http://socket.io/) and [Autobahn](http://autobahn.ws/) projects.
 
 ## Why?
 
