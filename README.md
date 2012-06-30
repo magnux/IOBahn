@@ -30,15 +30,16 @@ mConnection.connect(wsuri, new SocketIO.ConnectionHandler() {
   //What to do on WebSocket openning
   }
   
-  public void onClose() {
+  public void onClose(int code, String reason) {
    //What to do on WebSocket closing
   }
 });
 ```
-TODO: onError interface, comming soon, no biggie.
+If you want to know for sure why the connection closed, and handle errors, you only need to take a look at the code and reason that the onClose handler pass to you.
 
 And finally, subscribe to the desired events, declaring their handlers and the types of the incomming objects:
 ```java
+// Interface: SocketIO.on(String name, Class<?> eventType, EventHandler eventHandler)
 mConnection.on("myevent", MyEvent.class, new SocketIO.EventHandler() {
   //What to do on event
 });
@@ -46,10 +47,12 @@ mConnection.on("myevent", MyEvent.class, new SocketIO.EventHandler() {
 
 If you wan to emit an event, simply call emit:
 ```java
+// Interface: SocketIO.emit(String name, Object event)
 mConnection.emit("myevent", new MyEvent("foo"));
 ```
 
-Don't worry I'll documment more soon, and also will post a Simple Events Demo.
+##Demo
+Go to [IOBahn.SimpleEventsDemo](https://github.com/magnux/IOBahn.SimpleEventsDemo) repo, there you can download it and see IOBahn in action.
 
 ##License
 (The MIT License)
