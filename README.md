@@ -54,6 +54,9 @@ mConnection.emit("myevent", new MyEvent("foo"));
 ##Demo
 Go to [IOBahn.SimpleEventsDemo](https://github.com/magnux/IOBahn.SimpleEventsDemo) repo, there you can download it and see IOBahn in action.
 
+##Downloads
+Library packs are available under the downloads section. Download and extract them in your libs/ directory, and you're ready to start using IOBahn.
+
 ##License
 (The MIT License)
     
