@@ -96,31 +96,6 @@ public class SocketIOConnection extends WebSocketConnection implements SocketIO 
         if (DEBUG)
             Log.d(TAG, "reader created and started");
     }
-
-    /**
-     * Create new random ID. This is used, i.e. for use in RPC calls to
-     * correlate call message with result message.
-     * 
-     * @param len
-     *            Length of ID.
-     * @return New random ID of given length.
-     */
-    private String newId(int len) {
-        char[] buffer = new char[len];
-        for (int i = 0; i < len; i++) {
-            buffer[i] = mBase64Chars[mRng.nextInt(mBase64Chars.length)];
-        }
-        return new String(buffer);
-    }
-
-    /**
-     * Create new random ID of default length.
-     * 
-     * @return New random ID of default length.
-     */
-    private String newId() {
-        return newId(8);
-    }
         
     @Override
     public void connect(String wsUri, SocketIO.ConnectionHandler sessionHandler) {
