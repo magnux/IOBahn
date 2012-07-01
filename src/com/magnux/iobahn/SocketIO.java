@@ -73,7 +73,7 @@ public interface SocketIO {
     /**
      * Handler for PubSub events.
      */
-    public interface EventHandler {
+    public interface EventHandler{
 
         /**
          * Fired when an event is received.
@@ -84,7 +84,7 @@ public interface SocketIO {
          *            The event, transformed into the type that was specified
          *            when subscribing.
          */
-        public void onEvent(String name, Object event);
+        public void onEvent(Object event);
     }
 
     /**

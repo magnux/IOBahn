@@ -70,7 +70,17 @@ public class SocketIOWriter extends WebSocketWriter {
 
         try {
 
-            if (msg instanceof SocketIOMessage.Heartbeat) {
+            if (msg instanceof SocketIOMessage.Disconnect) {
+
+                generator.writeNumber(SocketIOMessage.MESSAGE_TYPE_DISCONNECT);
+                SocketIOMessage.Disconnect dis = (SocketIOMessage.Disconnect) msg;
+                
+                if (dis.mEndpoint != null){
+                	generator.writeRaw("::/");
+                	generator.writeRaw(dis.mEndpoint);
+                }
+
+            } else if (msg instanceof SocketIOMessage.Heartbeat) {
 
                 generator.writeNumber(SocketIOMessage.MESSAGE_TYPE_HEARTBEAT);
                 generator.writeRaw(":::");

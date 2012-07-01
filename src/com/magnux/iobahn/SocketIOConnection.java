@@ -252,7 +252,7 @@ public class SocketIOConnection extends WebSocketConnection implements SocketIO 
           if (mEvents.containsKey(event.mName)) {
              EventMeta meta = mEvents.get(event.mName);
              if (meta != null && meta.mEventHandler != null) {
-                meta.mEventHandler.onEvent(event.mName, event.mEvent);
+                meta.mEventHandler.onEvent(event.mEvent);
                 SocketIOMessage.ACK ack = new SocketIOMessage.ACK(event.mId,null);
                 mWriter.forward(ack);
              }
@@ -272,9 +272,16 @@ public class SocketIOConnection extends WebSocketConnection implements SocketIO 
     }
     
     @Override
+    public void disconnect() {
+    	SocketIOMessage.Disconnect dis = new SocketIOMessage.Disconnect(null);
+        mWriter.forward(dis);
+        super.disconnect();
+    }
+    
+    @Override
     public void disconnect(String endpoint) {
-        // TODO 
-
+    	SocketIOMessage.Disconnect dis = new SocketIOMessage.Disconnect(endpoint);
+        mWriter.forward(dis);
     }
     
     private void on(String name, EventMeta meta) {
