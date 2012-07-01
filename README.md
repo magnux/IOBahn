@@ -35,7 +35,7 @@ mConnection.connect(wsuri, new SocketIO.ConnectionHandler() {
   }
 });
 ```
-If you want to know for sure why the connection closed, and handle errors, you only need to take a look at the code and reason that the onClose handler pass to you.
+If you want to know for sure why the connection closed, and handle connection related problems, you only need to take a look at the code and reason that the onClose handler pass to you.
 
 Subscribe to the desired events, declaring their handlers and the types of the incomming objects:
 ```java
