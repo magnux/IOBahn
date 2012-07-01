@@ -37,11 +37,14 @@ mConnection.connect(wsuri, new SocketIO.ConnectionHandler() {
 ```
 If you want to know for sure why the connection closed, and handle errors, you only need to take a look at the code and reason that the onClose handler pass to you.
 
-And finally, subscribe to the desired events, declaring their handlers and the types of the incomming objects:
+Subscribe to the desired events, declaring their handlers and the types of the incomming objects:
 ```java
 // Interface: SocketIO.on(String name, Class<?> eventType, EventHandler eventHandler)
 mConnection.on("myevent", MyEvent.class, new SocketIO.EventHandler() {
-  //What to do on event
+  public void onEvent(Object event){
+    MyEvent myevent = (MyEvent) event; // we can safely cast to the class we specified before
+    //What to do on event happening
+  }
 });
 ```
 
@@ -49,6 +52,18 @@ If you wan to emit an event, simply call emit:
 ```java
 // Interface: SocketIO.emit(String name, Object event)
 mConnection.emit("myevent", new MyEvent("foo"));
+```
+
+Finally if you want to disconnect, call disconnect:
+```java
+// Interface: SocketIO.disconnect()
+mConnection.disconnect();
+```
+
+Optionally disconnect only from an endpoint:
+```java
+// Interface: SocketIO.disconnect(String endpoint)
+mConnection.disconnect("testendpoint");
 ```
 
 ##Demo
